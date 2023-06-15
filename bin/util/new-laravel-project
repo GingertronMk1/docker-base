@@ -17,8 +17,10 @@ if [ ! -f ./artisan ]; then
     shopt -s dotglob && \
     composer create-project laravel/laravel "${PROJECTNAME}" "$@" && \
     mv "${PROJECTNAME}"/* . && \
-    rm -rf "${PROJECTNAME}" \
+    rm -rf "${PROJECTNAME}" && \
+    composer require filament/filament:"^2.0" livewire/livewire \
     "
+  ./bin/install
 else
   echo "A Laravel project already exists in here"
 fi

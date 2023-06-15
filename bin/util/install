@@ -2,6 +2,10 @@
 
 docker-compose down -v
 
-docker-compose up -d --build
+docker-compose build
 
-./bin/docker/app/xdebug-off
+docker-compose run --rm app composer install
+
+docker-compose run --rm node npm install
+
+./bin/app/xdebug-off
