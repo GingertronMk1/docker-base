@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ ! -f ./artisan ]; then
+  docker-compose run --rm app composer create-project laravel/laravel "$@" && mv "$1"/* . && rm -rf "$1"
+else
+  echo "A Laravel project already exists in here"
+fi

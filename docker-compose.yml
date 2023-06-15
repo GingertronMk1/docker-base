@@ -57,7 +57,6 @@ services:
   adminer:
     platform: linux/x86_64
     image: adminer:4-standalone
-    restart: always
     depends_on:
       - database
     ports:
