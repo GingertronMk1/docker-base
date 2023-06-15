@@ -27,7 +27,7 @@ services:
       - "5173:5173"
 
   database:
-    image: postgres:${POSTGRES_VERSION}-alpine
+    image: postgres:${POSTGRES_VERSION:-15}-alpine
     environment:
       - POSTGRES_DB
       - POSTGRES_USER
