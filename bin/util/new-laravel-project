@@ -18,7 +18,9 @@ if [ ! -f ./artisan ]; then
     composer create-project laravel/laravel "${PROJECTNAME}" "$@" && \
     mv "${PROJECTNAME}"/* . && \
     rm -rf "${PROJECTNAME}" && \
-    composer require filament/filament:"^2.0" livewire/livewire \
+    composer require filament/filament:"^2.0" livewire/livewire && \
+    echo "" >> .env
+    cat .env.local >> .env \
     "
   ./bin/install
 else
