@@ -61,6 +61,8 @@ services:
       - database
     ports:
       - 8080:8080
+    volumes:
+      - './docker/local/adminer/credentials.php:/var/www/plugins-enabled/credentials.php'
     environment:
       ADMINER_DEFAULT_SERVER: database
       ADMINER_DESIGN: nette
@@ -68,6 +70,11 @@ services:
           tables-filter
           tinymce
           edit-foreign
+      DB_CONNECTION: ${DB_CONNECTION}
+      DB_HOST: ${DB_HOST}
+      DB_USERNAME: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_DATABASE: ${POSTGRES_DB}
     networks:
       - app-network
 
