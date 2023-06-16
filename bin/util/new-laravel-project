@@ -22,7 +22,7 @@ if [ ! -f ./artisan ]; then
     echo "" >> .env
     cat .env.local >> .env \
     "
-  ./bin/install
+  ./bin/util/install
 else
   echo "A Laravel project already exists in here"
 fi
