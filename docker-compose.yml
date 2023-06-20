@@ -62,7 +62,7 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - './docker/local/adminer/credentials.php:/var/www/plugins-enabled/credentials.php'
+      - './docker/local/adminer/credentials.php:/var/www/html/plugins-enabled/credentials.php'
     environment:
       ADMINER_DEFAULT_SERVER: database
       ADMINER_DESIGN: nette
