@@ -11,6 +11,16 @@ done
 
 echo "Creating ${PROJECTNAME}"
 
+regularDependencies=(
+  "filament/filament:\"^2.0\""
+  "livewire/livewire:\"^2.0\""
+)
+
+devDependencies=(
+  "laravel/breeze"
+  "symplify/easy-coding-standard:\"^11.0\""
+)
+
 if [ ! -f ./artisan ]; then
   docker-compose run --rm app \
     bash -c "\
@@ -18,10 +28,9 @@ if [ ! -f ./artisan ]; then
     composer create-project laravel/laravel "${PROJECTNAME}" "$@" && \
     mv "${PROJECTNAME}"/* . && \
     rm -rf "${PROJECTNAME}" && \
-    composer require \
-        filament/filament:"^2.0" \
-        livewire/livewire:"^2.0" \
-        symplify/easy-coding-standard:"^11.0" \
+    composer require ${regularDependencies[*]} \
+    && \
+    composer require ${devDependencies[*]} --dev \
     && \
     echo "" >> .env
     cat .env.local >> .env \
