@@ -1,0 +1,10 @@
+name: deploy
+
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.run_number == 1 && github.event.branch == github.event.repository.default_branch
+    steps:
+      - run: ./bin/util/new-laravel-project "${{ github.event.repository.name }}"
