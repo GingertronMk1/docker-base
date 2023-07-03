@@ -24,6 +24,7 @@ devDependencies=(
 )
 
 if [ ! -f ./artisan ]; then
+  cp .env.local .env
   docker-compose run --rm app \
     bash -c "\
     shopt -s dotglob && \
